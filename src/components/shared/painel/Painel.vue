@@ -1,10 +1,11 @@
 <template>
 	<div class="painel">
 		<h2 class="painel-titulo" @dblclick="visivel = !visivel">{{ titulo }}</h2>
-		
-		<div class="painel-corpo" v-show="visivel">
-			<slot></slot>
-		</div>
+		<transition name="painel-fade">
+      <div class="painel-corpo" v-show="visivel">
+        <slot></slot>
+      </div>
+		</transition>
 	</div>
 </template>
 
@@ -44,4 +45,23 @@
 	* {
 		box-shadow: 5px 5px 5px;
 	}
+
+  /* painel-fade-enter
+  antes do elemento ser incluído ou removido, o estado atual
+
+  painel-fade-enter-active
+  quando o elemento esta sendo incluído
+
+  painel-fade-leave-active
+  quando o elemento esta sendo removido */
+
+  .painel-fade-enter,
+  .painel-fade-leave-active {
+    opacity: 0
+  }
+
+  .painel-fade-enter-active,
+  .painel-fade-leave-active {
+    transition: opacity .4s
+  }
 </style>
