@@ -37,7 +37,7 @@
           let exp = new RegExp(this.filtro.trim(), 'i');
 
           // retorna apenas as fotos que condizem com a expressão
-          return this.fotos.filter(foto => exp.test(foto.titulo)); 
+          return this.fotos.filter(foto => exp.test(foto.titulo));   
         }
 
         // se o campo estiver vazio, não filtramos, retornamos a lista
