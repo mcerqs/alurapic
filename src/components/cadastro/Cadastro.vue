@@ -1,5 +1,5 @@
 <template>
-  <h1>{{ title }}</h1>
+  <h1 class="centralizado">{{ title }}</h1>
 </template>
 
 <script>
@@ -12,6 +12,6 @@
     }
 </script>
 
-<style lang="stylus">
+<style>
   .centralizado { text-align: center; }
 </style>
