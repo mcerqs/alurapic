@@ -9,7 +9,12 @@
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva :url="foto.url" :titulo="foto.titulo" />
 
-          <botao rotulo="remover" tipo="button" />
+          <botao
+            rotulo="remover"
+            tipo="button"
+            @botaoAtivado="remove(foto)"
+            :confirmacao="true"
+            estilo="perigo" />
         </meu-painel>
       </li>
     </ul>
@@ -56,6 +61,12 @@
         // .then(res => console.log(res))
         .then(res => res.json())
         .then(fotos => this.fotos = fotos, err => console.log(err));
+    },
+
+    methods: {
+      remove(foto) {
+        alert('Removendo imagem ' + foto.titulo);
+      }
     }
   }
 </script>
